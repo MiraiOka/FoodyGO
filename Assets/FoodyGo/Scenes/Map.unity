@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfdcc793b1b7ce49a592039723808d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DesiredAccuracyInMeters: 10
+  UpdateAccuracyInMeters: 10
   MapTileScale: 30
   MapTileSizePixels: 640
   MapTileZoomLevel: 17
@@ -183,6 +185,36 @@ MonoBehaviour:
     Longitude: 0
   mapWorldCenter: {x: 0, y: 0, z: 0}
   mapScale: {x: 0, y: 0}
+--- !u!1 &304072211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1947194063512904, guid: ae6b1aed212884aa3b1bc1eaf60ca899,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 304072212}
+  m_Layer: 0
+  m_Name: Monster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &304072212
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4941780668055972, guid: ae6b1aed212884aa3b1bc1eaf60ca899,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 304072211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318026998
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +245,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1296997055}
+  - {fileID: 2077417662}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -359,6 +392,7 @@ Transform:
   m_Children:
   - {fileID: 1960948412}
   - {fileID: 239531092}
+  - {fileID: 603415487}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -428,6 +462,58 @@ Transform:
   m_PrefabParentObject: {fileID: 4259048445333822, guid: b4c8c826491f94014a509b6168f3dd18,
     type: 2}
   m_PrefabInternal: {fileID: 597791639}
+--- !u!1 &603415486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 603415487}
+  - component: {fileID: 603415488}
+  m_Layer: 0
+  m_Name: Monster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603415487
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603415486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 420206032}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603415488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603415486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c718a2d1d8da941438fb5286c51f5763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gpsLocationService: {fileID: 239531093}
+  monsterPrefab: {fileID: 1947194063512904, guid: ae6b1aed212884aa3b1bc1eaf60ca899,
+    type: 2}
+  monsterSpawnRate: 0.25
+  latitudeSpawnOffset: 0.001
+  longitudeSpawnOffset: 0.001
+  monsterHearDistance: 200
+  monsterSeeDistance: 100
+  monsterLifetimeSeconds: 30
+  oneStepRange: 125
+  twoStepRange: 150
+  threeStepRange: 200
 --- !u!1001 &747034927
 Prefab:
   m_ObjectHideFlags: 0
@@ -1254,6 +1340,89 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Port: 55055
+--- !u!1 &2077417661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2077417662}
+  - component: {fileID: 2077417665}
+  - component: {fileID: 2077417664}
+  - component: {fileID: 2077417663}
+  m_Layer: 5
+  m_Name: Footsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2077417662
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077417661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 318026999}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2077417663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077417661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657761ec72b76c0468e95f0a96edc339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterService: {fileID: 603415488}
+  oneFootstep: {fileID: 2800000, guid: aaca8899c5bad8742baf8c293caa0723, type: 3}
+  twoFootsteps: {fileID: 2800000, guid: bf36c2cdbdab53842ad9e64cb1a8ab73, type: 3}
+  threeFootsteps: {fileID: 2800000, guid: 509e499a9682bf747ab040566b4e8193, type: 3}
+--- !u!114 &2077417664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077417661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &2077417665
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077417661}
 --- !u!1001 &2099371544
 Prefab:
   m_ObjectHideFlags: 0

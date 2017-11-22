@@ -120,7 +120,6 @@ namespace packt.FoodyGO.Mapping
             yield return req.Send();
 			//first destroy the old texture first
 			Destroy(GetComponent<Renderer>().material.mainTexture);
-			//when the image returns set it as the tile texture
             if (req.error != null) {
                 print (string.Format ("Error loading tile {0}x{1}:  exception={2}",
                     TileOffset.x, TileOffset.y, req.error));

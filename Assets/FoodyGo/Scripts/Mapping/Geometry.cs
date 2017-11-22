@@ -3,7 +3,7 @@
 namespace packt.FoodyGO.Mapping
 {
     [System.Serializable]
-	//MapEnvelopeという独自の空間タイプを扱えるように設計
+
     public class MapLocation
     {
         public float Latitude;

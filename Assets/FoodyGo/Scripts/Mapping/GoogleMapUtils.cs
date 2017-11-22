@@ -2,7 +2,11 @@
 
 namespace packt.FoodyGO.Mapping
 {
-	//空間に関する数学関数のライブラリ。地図とゲームの世界のスケールを変換できる
+    /// <summary>
+    /// Original Author - RALPH BARBAGALLO
+    /// https://gist.github.com/flarb/4980598
+    /// Source has been extended
+    /// </summary>
     public class GoogleMapUtils
     {
         static float GOOGLE_OFFSET = 268435456f;
@@ -57,8 +61,7 @@ namespace packt.FoodyGO.Mapping
             return (float)tileSizeUnits / (float)rng;
         }
 
-        //Vector2 uv = new Vector2((float)myMarker.pixelCoords.x / (float)renderer.material.mainTexture.width, 1f - (float)myMarker.pixelCoords.y / (float)renderer.material.mainTexture.height);
-
+        
     }
 }
 
