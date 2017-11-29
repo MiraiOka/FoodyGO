@@ -4,6 +4,7 @@ using packt.FoodyGO.Mapping;
 using System.Collections.Generic;
 using packt.FoodyGO.Database;
 using packt.FoodyGo.Utils;
+using packt.FoodyGO.Controllers;
 
 namespace packt.FoodyGO.Services
 {
@@ -28,12 +29,12 @@ namespace packt.FoodyGO.Services
         public float twoStepRange = 150f;
         public float threeStepRange = 200f;
 
-        public List<Monster> monsters;
+        public List<MonsterSpawnLocation> monsters;
         
         // Use this for initialization
         void Start()
         {
-            monsters = new List<Monster>();
+            monsters = new List<MonsterSpawnLocation>();
             StartCoroutine(CleanupMonsters());
             gpsLocationService.OnMapRedraw += GpsLocationService_OnMapRedraw;
         }
@@ -41,7 +42,7 @@ namespace packt.FoodyGO.Services
         private void GpsLocationService_OnMapRedraw(GameObject g)
         {
             //map is recentered, recenter all monsters
-            foreach(Monster m in monsters)
+            foreach(MonsterSpawnLocation m in monsters)
             {
                 if(m.gameObject != null)
                 {
@@ -62,16 +63,21 @@ namespace packt.FoodyGO.Services
                     if(list[i].spawnTimestamp + monsterLifetimeSeconds < now)
                     {
                         var monster = list[i];
-                        print("Cleaning up monster");
-                        if(monster.gameObject != null)
-                        {
-                            Destroy(monster.gameObject);
-                        }
-                        monsters.Remove(monster);
+                        RemoveMonster(monster);
                     }
                 }
                 yield return new WaitForSeconds(5);
             }
+        }
+
+        public void RemoveMonster(MonsterSpawnLocation monster)
+        {
+            print("Cleaning up monster ");
+            if (monster.gameObject != null)
+            {
+                Destroy(monster.gameObject);
+            }
+            monsters.Remove(monster);
         }
 
         // Update is called once per frame
@@ -94,7 +100,7 @@ namespace packt.FoodyGO.Services
             {
                 var mlat = gpsLocationService.Latitude + Random.Range(-latitudeSpawnOffset, latitudeSpawnOffset);
                 var mlon = gpsLocationService.Longitude + Random.Range(-longitudeSpawnOffset, longitudeSpawnOffset);
-                var monster = new Monster
+                var monster = new MonsterSpawnLocation
                 {
                     location = new MapLocation(mlon, mlat),
                     spawnTimestamp = gpsLocationService.PlayerTimestamp
@@ -107,7 +113,7 @@ namespace packt.FoodyGO.Services
             //get the current Epoch time in seconds
             var now = Epoch.Now;
 
-            foreach (Monster m in monsters)
+            foreach (MonsterSpawnLocation m in monsters)
             {
                 var d = MathG.Distance(m.location, playerLocation);
                 if (MathG.Distance(m.location, playerLocation) < monsterSeeDistance)
@@ -150,6 +156,8 @@ namespace packt.FoodyGO.Services
             return 4;
         }
 
+        
+
         private Vector3 ConvertToWorldSpace(float longitude, float latitude)
         {
             //convert GPS lat/long to world x/y 
@@ -160,14 +168,18 @@ namespace packt.FoodyGO.Services
             return new Vector3(-x, 0, y);
         }
 
-        private void SpawnMonster(Monster monster)
-        {
+        private void SpawnMonster(MonsterSpawnLocation monster)
+        {            
             var lon = monster.location.Longitude;
             var lat = monster.location.Latitude;
             var position = ConvertToWorldSpace(lon, lat);
-			//Vector3.up(上向き)の軸にRandom.Range(0, 360)だけ回転させる
             var rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
             monster.gameObject = (GameObject)Instantiate(monsterPrefab, position, rotation);
+            var controller = monster.gameObject.AddComponent<MonsterController>();
+            controller.monsterSpawnLocation = monster;
+            controller.monsterService = this;
+            monster.gameObject.transform.parent = transform;
         }
+        
     }
 }

@@ -5,6 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/FoodyGo/Developments/Scenes/Map.unity
+  - enabled: 0
+    path: Assets/FoodyGo/Scenes/Game.unity
+    guid: 86d0d7f8e66d54c0eb0731f4e6d8caf1
+  - enabled: 0
+    path: Assets/FoodyGo/Scenes/Splash.unity
+    guid: 1395d5672d51c49bda1283e82dfe6333
+  - enabled: 0
+    path: Assets/FoodyGo/Scenes/Map.unity
     guid: 6609ab6d290704679b59d0372d96ce22
+  - enabled: 1
+    path: Assets/FoodyGo/Scenes/Catch.unity
+    guid: ed76ad87fcd4a41ff8472cafa8607e5a
