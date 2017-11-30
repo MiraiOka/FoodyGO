@@ -32,7 +32,7 @@ namespace packt.FoodyGO.Controllers
                 return;
             }
             //if monster is moving they will warm up a bit
-			animationSpeed = Mathf.Clamp01(animationSpeed/* + monsterWarmRate*/);
+            animationSpeed = Mathf.Clamp01(animationSpeed + monsterWarmRate);
             anim["Walk_Loop"].speed = animationSpeed;
         }
 

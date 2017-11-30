@@ -112,6 +112,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &13188818 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026,
+    type: 2}
+  m_PrefabInternal: {fileID: 504294075}
 --- !u!1001 &77061985
 Prefab:
   m_ObjectHideFlags: 0
@@ -169,7 +174,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -287,74 +292,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224727718191574948, guid: f1519f3b6c2964bc793781023e2656b7,
     type: 2}
   m_PrefabInternal: {fileID: 125815060}
---- !u!1 &239531091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 239531092}
-  - component: {fileID: 239531093}
-  m_Layer: 0
-  m_Name: GPS
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &239531092
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 239531091}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 420206032}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &239531093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 239531091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfdcc793b1b7ce49a592039723808d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DesiredAccuracyInMeters: 10
-  UpdateAccuracyInMeters: 10
-  MapTileScale: 30
-  MapTileSizePixels: 640
-  MapTileZoomLevel: 17
-  Simulating: 1
-  StartCoordinates:
-    Latitude: 35.707844
-    Longitude: 139.74884
-  Rate: 5
-  SimulationOffsets:
-  - {x: -0.0003, y: 0}
-  - {x: -0.0008, y: 0}
-  - {x: -0.0008, y: 0}
-  - {x: -0.0003, y: 0}
-  - {x: -0.0001, y: 0}
-  IsServiceStarted: 0
-  Latitude: 0
-  Longitude: 0
-  Altitude: 0
-  Accuracy: 0
-  Timestamp: 0
-  PlayerTimestamp: 0
-  mapCenter:
-    Latitude: 0
-    Longitude: 0
-  mapWorldCenter: {x: 0, y: 0, z: 0}
-  mapScale: {x: 0, y: 0}
 --- !u!1 &318026998
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +456,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -580,7 +517,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -614,9 +551,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1960948412}
-  - {fileID: 239531092}
   - {fileID: 603415487}
+  - {fileID: 447422576}
   m_Father: {fileID: 540740343}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -677,7 +613,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -686,6 +622,100 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012574202474, guid: 436f2ccab12067043ac76ad10469aa9d,
     type: 2}
   m_PrefabInternal: {fileID: 438633101}
+--- !u!1 &447422575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 447422576}
+  - component: {fileID: 447422577}
+  m_Layer: 0
+  m_Name: GooglePlacesAPI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &447422576
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447422575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 420206032}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &447422577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447422575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7b47eb702675d49a2c50c8bff44be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeMarkerPrefab: {fileID: 1375737135464106, guid: 7e2a3141e71a34d9197cf22014995026,
+    type: 2}
+  location:
+    Latitude: 37.62814
+    Longitude: -122.4265
+  visualDistance: 2000
+  type: food
+  APIKey: AIzaSyABM8X4HcUMtNErSX5kPdiHXUW7rZ3EGoY
+--- !u!1001 &504294075
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 540740343}
+    m_Modifications:
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321219370235002, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375737135464106, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7e2a3141e71a34d9197cf22014995026, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &540740342
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +746,7 @@ Transform:
   - {fileID: 1131043638}
   - {fileID: 420206032}
   - {fileID: 318026999}
+  - {fileID: 13188818}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -776,7 +807,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -812,7 +843,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420206032}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &603415488
 MonoBehaviour:
@@ -825,7 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c718a2d1d8da941438fb5286c51f5763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gpsLocationService: {fileID: 239531093}
   monsterPrefab: {fileID: 1000012646812228, guid: eddfd87b0a090144cbc0980c6f3ab2e2,
     type: 2}
   monsterSpawnRate: 0.25
@@ -889,7 +919,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -1072,7 +1102,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -1149,7 +1179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730e2ebedbcb1454bab936020db50d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gpsLocationService: {fileID: 239531093}
 --- !u!136 &1227585045
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1379,7 +1408,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
@@ -2068,47 +2097,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011334802642, guid: c72269396f82e214b9e099c930c36173,
     type: 2}
   m_PrefabInternal: {fileID: 1519170151}
---- !u!1 &1960948411
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1960948412}
-  - component: {fileID: 1960948413}
-  m_Layer: 0
-  m_Name: CUDLR
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1960948412
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1960948411}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 420206032}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1960948413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1960948411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2554b3ff7996402f9ad6253b4909cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Port: 55055
 --- !u!1 &2077417661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,7 +2232,7 @@ Prefab:
         type: 2}
       propertyPath: gpsLocationService
       value: 
-      objectReference: {fileID: 239531093}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 436f2ccab12067043ac76ad10469aa9d, type: 2}
   m_IsPrefabParent: 0
